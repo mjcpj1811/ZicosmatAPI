@@ -1,0 +1,34 @@
+spring:
+  config:
+    activate:
+      on-profile: test
+  devtools:
+    add-properties: true
+  datasource:
+    url: jdbc:mysql://localhost:3307/zicosmat
+    username: root
+    password: admin123
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+# application-test.yml
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+openapi:
+  service:
+    api-docs: zicosmat
+    server: ${Zicosmat:http://localhost:${server.port}}
+    title: Zicosmat
+    version: 1.0.0
+
+jwt:
+  secretKey: xyz@123

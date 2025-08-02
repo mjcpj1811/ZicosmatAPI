@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: backend-service
+  profiles:
+    active: @spring.profiles.active@
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+logging:
+  level:
+    root: INFO
+    web: INFO

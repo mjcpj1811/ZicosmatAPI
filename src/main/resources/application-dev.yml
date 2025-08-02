@@ -1,0 +1,37 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+  devtools:
+    add-properties: true
+  datasource:
+    url: jdbc:mysql://localhost:3307/zicosmat
+    username: root
+    password: admin123
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 5MB
+      max-request-size: 10MB
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+openapi:
+  service:
+    api-docs: zicosmat
+    server: http://localhost:${server.port}
+    title: Zicosmat
+    version: 1.0.0
+
+jwt:
+  secret: zicosmatwebzicosmatwebzicosmatwebzicosmatweb
+  expiration: 8640000
