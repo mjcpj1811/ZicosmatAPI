@@ -68,6 +68,19 @@ public class ProductController {
                 .data(productService.getProductDetail(sku)).build();
     }
 
+    @Operation(summary = "Update image product", description = "Update product image")
+    @PutMapping("/{id}/edit-image")
+    public ApiResponse updateProductImage(@PathVariable long id,MultipartFile[] images, String[] imagesToDelete) throws IOException {
+        log.info("Update image product");
+
+        productService.updateImages(id,images,imagesToDelete);
+
+        return ApiResponse.builder()
+                .status(HttpStatus.ACCEPTED.value())
+                .message("Update images successfully")
+                .data("").build();
+    }
+
     @Operation(summary = "Update product", description = "Update product")
     @PutMapping("/update")
     public ApiResponse updateProduct(@RequestBody ProductUpdateRequest request) {
@@ -93,4 +106,5 @@ public class ProductController {
                 .message("Delete product successfully")
                 .data("").build();
     }
+    
 }

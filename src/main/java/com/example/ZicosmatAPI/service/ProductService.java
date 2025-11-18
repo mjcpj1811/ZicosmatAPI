@@ -20,7 +20,7 @@ public interface ProductService {
 
     void updateProduct(ProductUpdateRequest request);
 
-    void updateImages(long id, MultipartFile[] images);
+    void updateImages(long id, MultipartFile[] images, String[] imagesToDelete) throws IOException;
 
     void deleteProduct(long id);
 }
